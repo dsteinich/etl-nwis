@@ -7,8 +7,8 @@ whenever oserror exit failure rollback;
 select 'build summary tables start time: ' || systimestamp from dual;
 
 begin
-	etl_helper_summary.create_tables('nwis');
-	etl_helper_summary.create_indexes('nwis');
+	dave_etl_helper_summary.create_tables('nwis');
+	dave_etl_helper_summary.create_indexes('nwis');
 end;
 /
 
