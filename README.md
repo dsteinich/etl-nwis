@@ -55,5 +55,5 @@ mvn package
 To additionally start up a Docker database and run the integration tests of the application use:
 
 ```shell
-mvn verify -DTESTING_DATABASE_PORT=5437 -DTESTING_DATABASE_ADDRESS=localhost -DTESTING_DATABASE_NETWORK=wqpEtlCore
+mvn verify -DTESTING_DATABASE_PORT=5437 -DTESTING_DATABASE_ADDRESS=localhost -DTESTING_DATABASE_NETWORK=wqpEtlCore -DMYSQL_DATABASE_ADDRESS=localhost -DMYSQL_DATABASE_PORT=5438
 ```

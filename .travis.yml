@@ -24,6 +24,8 @@ script:
     -e TESTING_DATABASE_PORT=5432 \
     -e TESTING_DATABASE_ADDRESS=wqpDatabase \
     -e TESTING_DATABASE_NETWORK=etlNwis \
+    -e MYSQL_DATABASE_ADDRESS=nwiswebDatabase \
+    -e MYSQL_DATABASE_PORT=3306 \
     maven:3.6.0-jdk-11 mvn clean verify
 
   - docker network rm etlNwis

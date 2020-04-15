@@ -160,6 +160,8 @@
                         <ETL_DATA_SOURCE>NWIS</ETL_DATA_SOURCE>
                         <QWPORTAL_SUMMARY_ETL>true</QWPORTAL_SUMMARY_ETL>
                         <NWIS_OR_EPA>N</NWIS_OR_EPA>
+                        <MYSQL_USERNAME>nwisMysql</MYSQL_USERNAME>
+                        <MYSQL_PASSWORD>changeMe</MYSQL_PASSWORD>
                     </environmentVariables>
                 </configuration>
                 <executions>
@@ -210,6 +212,28 @@
                                 <wait>
                                     <time>150000</time>
                                     <log>(?s)PostgreSQL init process complete; ready for start up.*database system is ready to accept connections</log>
+                                </wait>
+                            </run>
+                        </image>
+                        <image>
+                            <name>mysql:5</name>
+                            <alias>nwiswebDatabase</alias>
+                            <run>
+                                <network>
+                                    <mode>custom</mode>
+                                    <name>${TESTING_DATABASE_NETWORK}</name>
+                                </network>
+                                <ports>
+                                    <port>5438:3306</port>
+                                </ports>
+                                <env>
+                                    <MYSQL_ROOT_PASSWORD>changeMe</MYSQL_ROOT_PASSWORD>
+                                    <MYSQL_DATABASE>nwis</MYSQL_DATABASE>
+                                    <MYSQL_USER>nwisMysql</MYSQL_USER>
+                                    <MYSQL_PASSWORD>changeMe</MYSQL_PASSWORD>
+                                </env>
+                                <wait>
+                                    <time>60000</time>
                                 </wait>
                             </run>
                         </image>

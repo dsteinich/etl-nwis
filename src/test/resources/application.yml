@@ -18,7 +18,8 @@ spring:
     password: ${NWIS_SCHEMA_OWNER_PASSWORD}
 
   datasource-mysqlnwis:
-    url: jdbc:h2:mem:dbtest
+#    url: jdbc:h2:mem:dbtest
+    url: jdbc:mysql://${MYSQL_DATABASE_ADDRESS}:${MYSQL_DATABASE_PORT}/nwis?serverTimezone=CST6CDT&zeroDateTimeBehavior=convertToNull&useSSL=false
     username: ${MYSQL_USERNAME}
     password: ${MYSQL_PASSWORD}
     liquibase:
